@@ -1,4 +1,4 @@
-package discordtypes
+package types
 
 import (
 	"encoding/json"
