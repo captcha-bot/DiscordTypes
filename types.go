@@ -74,7 +74,7 @@ type GatewayIdentify struct {
 	} `json:"d"`
 }
 
-type heartbeatOp struct {
+type HeartbeatOp struct {
 	Op   int   `json:"op"`
 	Data int64 `json:"d"`
 }
