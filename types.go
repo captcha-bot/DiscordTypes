@@ -37,6 +37,12 @@ const (
 	AllowedMentionTypeEveryone AllowedMentionType = "everyone"
 )
 
+// An APIErrorMessage is an api error message returned from discord
+type APIErrorMessage struct {
+	Code    int    `json:"code"`
+	Message string `json:"message"`
+}
+
 type MessageSend struct {
 	Content         string                  `json:"content,omitempty"`
 	Embed           *MessageEmbed           `json:"embed,omitempty"`
