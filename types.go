@@ -234,26 +234,30 @@ const (
 	MessageTypeUserPremiumGuildSubscriptionTierTwo
 	MessageTypeUserPremiumGuildSubscriptionTierThree
 	MessageTypeChannelFollowAdd
+	MessageTypeDiscoveryDisqualified = 14
+	MessageTypeDiscoveryRequalified  = 15
+	MessageTypeInlineReply           = 19
 )
 
 // A Message stores all data related to a specific Discord message.
 type Message struct {
-	ID              string          `json:"id"`
-	ChannelID       string          `json:"channel_id"`
-	GuildID         string          `json:"guild_id,omitempty"`
-	Content         string          `json:"content"`
-	Timestamp       string          `json:"timestamp"`
-	EditedTimestamp string          `json:"edited_timestamp"`
-	MentionRoles    []string        `json:"mention_roles"`
-	Author          *User           `json:"author"`
-	Embeds          []*MessageEmbed `json:"embeds"`
-	Mentions        []*User         `json:"mentions"`
-	Pinned          bool            `json:"pinned"`
-	Type            MessageType     `json:"type"`
-	WebhookID       string          `json:"webhook_id"`
-	Member          *Member         `json:"member"`
-	MentionChannels []*Channel      `json:"mention_channels"`
-	Flags           int             `json:"flags"`
+	ID                string          `json:"id"`
+	ChannelID         string          `json:"channel_id"`
+	GuildID           string          `json:"guild_id,omitempty"`
+	Content           string          `json:"content"`
+	Timestamp         string          `json:"timestamp"`
+	EditedTimestamp   string          `json:"edited_timestamp"`
+	MentionRoles      []string        `json:"mention_roles"`
+	Author            *User           `json:"author"`
+	Embeds            []*MessageEmbed `json:"embeds"`
+	Mentions          []*User         `json:"mentions"`
+	Pinned            bool            `json:"pinned"`
+	Type              MessageType     `json:"type"`
+	WebhookID         string          `json:"webhook_id"`
+	Member            *Member         `json:"member"`
+	MentionChannels   []*Channel      `json:"mention_channels"`
+	Flags             int             `json:"flags"`
+	ReferencedMessage *Message        `json:"referenced_message"`
 }
 
 // File stores info about files you e.g. send in messages.
@@ -263,6 +267,7 @@ type File struct {
 	Reader      io.Reader
 }
 
+// MessageAttachment stores the messages attachment and its meta-data
 type MessageAttachment struct {
 	ID       string `json:"id"`
 	URL      string `json:"url"`
